@@ -41,13 +41,27 @@ public class MainActivity extends AppCompatActivity
         //Convert dp to px to use in functions
         Resources r = getResources();
         int px = Math.round(TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, 8,r.getDisplayMetrics()));
+                TypedValue.COMPLEX_UNIT_DIP, 8, r.getDisplayMetrics()));
 
         //horizontal linear layout
-        LinearLayout linearLayout=(LinearLayout)findViewById(R.id.linearlayout);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
 
-        CardView card=GoalsBuilder.cardbuilder(MainActivity.this,px);
-        linearLayout.addView(card);
+        CardView[] cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
+
+        for(int i=0; i<4;i++)//change the number of cards according to goals in database
+        {
+            linearLayout.addView(cardViews[i]);
+        }
+
+        //horizontal linear layout
+        LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearlayout2);
+
+        CardView[] NGOcardViews = NGOBuilder.ngocardbuilder(MainActivity.this, px);
+
+        for(int i=0; i<4;i++)//change the number of cards according to goals in database
+        {
+            linearLayout2.addView(NGOcardViews[i]);
+        }
     }
 
     @Override
