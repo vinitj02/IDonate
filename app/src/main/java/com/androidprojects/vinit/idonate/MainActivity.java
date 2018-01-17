@@ -1,7 +1,9 @@
 package com.androidprojects.vinit.idonate;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -25,6 +27,18 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        long id=Utils.getParamL(this,Utils.LOGIN_ID,0);
+
+        if(id==0){
+            HintRequest hintRequest = new HintRequest.Builder()
+                    .setHintPickerConfig(newCredentialPickerConfig.Builder().setShowCancelButton(true).build())
+                    .setPhoneNumberIdentifierSupported(true)
+                    .build();
+        }
+
+
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
