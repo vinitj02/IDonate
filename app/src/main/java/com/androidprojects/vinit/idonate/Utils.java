@@ -9,21 +9,22 @@ import android.preference.PreferenceManager;
 
 public class Utils {
 
-    final static String LOGIN_ID="loginId";
+    public static String LOGIN_ID="loginId";
+    public static int PHONE_HINT=0;
 
-    static String getParamStr(Context ctx,String str,String def){
+    public static  String getParamStr(Context ctx,String str,String def){
         return PreferenceManager.getDefaultSharedPreferences(ctx).getString(str,def);
     }
 
-    static long getParamL(Context ctx,String str,long def){
+    public static  long getParamL(Context ctx,String str,long def){
         return PreferenceManager.getDefaultSharedPreferences(ctx).getLong(str,def);
     }
 
-    static int getParamI(Context ctx,String str,int def){
+    public static  int getParamI(Context ctx,String str,int def){
         return PreferenceManager.getDefaultSharedPreferences(ctx).getInt(str,def);
     }
 
-    static boolean getParamB(Context ctx,String str,boolean def){
+    public static  boolean getParamB(Context ctx,String str,boolean def){
         return PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(str,def);
     }
 }
