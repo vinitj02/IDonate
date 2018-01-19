@@ -16,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -29,14 +31,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         long id=Utils.getParamL(this,Utils.LOGIN_ID,0);
-
+/*
         if(id==0){
             HintRequest hintRequest = new HintRequest.Builder()
                     .setHintPickerConfig(newCredentialPickerConfig.Builder().setShowCancelButton(true).build())
                     .setPhoneNumberIdentifierSupported(true)
                     .build();
         }
-
+*/
 
 
         setContentView(R.layout.activity_main);
@@ -60,11 +62,30 @@ public class MainActivity extends AppCompatActivity
         //horizontal linear layout
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
 
-        CardView[] cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
+        //horizontal scroll views
+        HorizontalScrollView horizontalScrollView=(HorizontalScrollView)findViewById(R.id.horizontalscroll1);
+        HorizontalScrollView horizontalScrollView1=(HorizontalScrollView)findViewById(R.id.horizontalscroll2);
 
-        for(int i=0; i<4;i++)//change the number of cards according to goals in database
+        //Buttons
+        Button button1=(Button)findViewById(R.id.button1);
+        Button button2=(Button)findViewById(R.id.button2);
+        Button button3=(Button)findViewById(R.id.button_addgoals);
+        Button button4=(Button)findViewById(R.id.button_addngos);
+
+        CardView[] cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
+        if(cardViews==null)
         {
-            linearLayout.addView(cardViews[i]);
+            button1.setVisibility(View.GONE);
+            horizontalScrollView.setVisibility(View.GONE);
+        }
+
+        else {
+
+            button3.setVisibility(View.GONE);
+            for (int i = 0; i < 4; i++)//change the number of cards according to goals in database
+            {
+                linearLayout.addView(cardViews[i]);
+            }
         }
 
         //horizontal linear layout
@@ -72,9 +93,18 @@ public class MainActivity extends AppCompatActivity
 
         CardView[] NGOcardViews = NGOBuilder.ngocardbuilder(MainActivity.this, px);
 
-        for(int i=0; i<4;i++)//change the number of cards according to goals in database
+        if(NGOcardViews==null)
         {
-            linearLayout2.addView(NGOcardViews[i]);
+            button2.setVisibility(View.GONE);
+            horizontalScrollView1.setVisibility(View.GONE);
+        }
+
+        else {
+            button4.setVisibility(View.GONE);
+            for (int i = 0; i < 4; i++)//change the number of cards according to goals in database
+            {
+                linearLayout2.addView(NGOcardViews[i]);
+            }
         }
     }
 
