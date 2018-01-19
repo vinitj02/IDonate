@@ -37,13 +37,15 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    CardView[] cardViews;
+    CardView[] NGOcardViews;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         long id=Utils.getParamL(this,Utils.LOGIN_ID,0);
 
-        if(id==0)startActivity(new Intent(this, LoginActivity.class));
+       // if(id==0)startActivity(new Intent(this, LoginActivity.class));
 
 
 
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         Button button3=(Button)findViewById(R.id.button_addgoals);
         Button button4=(Button)findViewById(R.id.button_addngos);
 
-        CardView[] cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
+        cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
         if(cardViews==null)
         {
             button1.setVisibility(View.GONE);
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         //horizontal linear layout
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearlayout2);
 
-        CardView[] NGOcardViews = NGOBuilder.ngocardbuilder(MainActivity.this, px);
+        NGOcardViews = NGOBuilder.ngocardbuilder(MainActivity.this, px);
 
         if(NGOcardViews==null)
         {
@@ -111,6 +113,15 @@ public class MainActivity extends AppCompatActivity
             {
                 linearLayout2.addView(NGOcardViews[i]);
             }
+        }
+    }
+
+    public void SelectNGOs(View view)
+    {
+        if(NGOcardViews==null)
+        {
+            Intent intent=new Intent(MainActivity.this,AllNGOsActivity.class);
+            startActivity(intent);
         }
     }
 

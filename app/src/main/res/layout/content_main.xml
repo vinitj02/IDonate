@@ -95,14 +95,15 @@
         >
 
         <Button
-        android:id="@+id/button_addngos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@null"
-        android:text="Add NGOs +"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp" />
+            android:id="@+id/button_addngos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:text="Add NGOs +"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:onClick="SelectNGOs"/>
 
         <LinearLayout
         android:layout_width="match_parent"

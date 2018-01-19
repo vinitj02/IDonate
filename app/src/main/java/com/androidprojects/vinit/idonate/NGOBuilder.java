@@ -15,9 +15,9 @@ import android.widget.TextView;
 public class NGOBuilder {
 
     public static CardView[] ngocardbuilder(Context context, int px) {
-        int no_of_cards = 4;
+        int no_of_cards = 0;//Change the number of cards when you link with database
         // Initialize a new CardView array
-        CardView[] cardViews = new CardView[4];//Change the number of cards when you link with database
+        CardView[] cardViews = new CardView[no_of_cards];
 
         if (no_of_cards == 0) {
             return null;
