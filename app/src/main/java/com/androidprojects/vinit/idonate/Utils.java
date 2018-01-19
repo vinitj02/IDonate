@@ -10,6 +10,8 @@ import android.preference.PreferenceManager;
 public class Utils {
 
     public static String LOGIN_ID="loginId";
+    public static String OTP_RECEIVED="otpReceived";
+    public static String OTP="otp";
     public static int PHONE_HINT=0;
 
     public static  String getParamStr(Context ctx,String str,String def){
