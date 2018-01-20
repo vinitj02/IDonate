@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity
 
         long id=Utils.getParamL(this,Utils.LOGIN_ID,0);
 
-       // if(id==0)startActivity(new Intent(this, LoginActivity.class));
-
+        //if(id==0)startActivity(new Intent(this, LoginActivity.class));
 
 
         setContentView(R.layout.activity_main);
