@@ -11,7 +11,7 @@ import com.androidprojects.vinit.idonate.R;
 import com.androidprojects.vinit.idonate.Utils;
 import com.chaos.view.PinView;
 
-public class UpiActivity extends AppCompatActivity implements View.OnClickListener{
+public class PassCodeActivity extends AppCompatActivity implements View.OnClickListener{
 
     PinView upiPV;
     Button proceedB;
@@ -28,6 +28,6 @@ public class UpiActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         String str= upiPV.getText().toString();
-        if(str.length()==6)startActivity(new Intent(this,DonateActivity.class).setAction(Utils.DO_TRANSACTION).putExtra(Utils.UPI_CODE,str));
+        if(str.length()==6)startActivity(new Intent(this,DonateActivity.class).setAction(Utils.DO_TRANSACTION).putExtra(Utils.PASS_CODE,str));
     }
 }
