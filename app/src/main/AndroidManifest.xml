@@ -23,6 +23,12 @@
             android:name=".AllNGOsActivity"
             android:label="@string/title_activity_all_ngos"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.ChooseNgoActivity"/>
+        <activity android:name=".activities.DonateActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".activities.UpiActivity"/>
+        <activity android:name=".activities.LoginActivity"/>
+        <activity android:name=".activities.OTPActivity"/>
         <receiver android:name=".OTPReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>

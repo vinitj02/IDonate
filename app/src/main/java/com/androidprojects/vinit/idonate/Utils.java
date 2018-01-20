@@ -14,6 +14,8 @@ public class Utils {
     public static String OTP="otp";
     public static String CURRENT_BALANCE="currentBalance";
     public static String DONATION_AMOUNT="donationAmount";
+    public static String DO_TRANSACTION="doTransaction";
+    public static String UPI_CODE="upiCode";
     public static int PHONE_HINT=0;
 
     public static  String getParamStr(Context ctx,String str,String def){

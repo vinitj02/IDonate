@@ -52,6 +52,7 @@ public class ChooseNgoActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
+
         //TODO:confirm donation
     }
 

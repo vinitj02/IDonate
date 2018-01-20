@@ -51,11 +51,17 @@ public class DonateActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+
     @Override
     public void onClick(View view) {
         String amt=dntAmtEt.getText().toString();
         if(amt.length()>0 && Long.parseLong(amt)<=crtBalL){
             startActivity(new Intent(this,ChooseNgoActivity.class).putExtra(Utils.DONATION_AMOUNT,Long.parseLong(amt)));
         }
+    }
+
+    void doTransaction(String upiCode){
+
     }
 }
