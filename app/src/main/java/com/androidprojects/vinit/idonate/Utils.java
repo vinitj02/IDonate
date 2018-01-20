@@ -12,6 +12,8 @@ public class Utils {
     public static String LOGIN_ID="loginId";
     public static String OTP_RECEIVED="otpReceived";
     public static String OTP="otp";
+    public static String CURRENT_BALANCE="currentBalance";
+    public static String DONATION_AMOUNT="donationAmount";
     public static int PHONE_HINT=0;
 
     public static  String getParamStr(Context ctx,String str,String def){

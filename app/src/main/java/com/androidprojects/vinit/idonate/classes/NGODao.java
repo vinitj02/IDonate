@@ -13,4 +13,7 @@ import java.util.List;
 public interface NGODao {
     @Query("SELECT * FROM ngo WHERE selected = :select")
     List<NGO> getSelectedNGOs(boolean select);
+
+    @Query("SELECT * FROM ngo")
+    List<NGO> getNGOs();
 }

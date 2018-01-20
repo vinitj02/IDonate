@@ -8,11 +8,11 @@ import android.graphics.Bitmap;
 @Entity
 public class NGO {
     @PrimaryKey(autoGenerate = true)
-    int id;
-    String name;
-    boolean selected;
-    int donated;
-    int target;
+    private int id;
+    public String name;
+    public boolean selected;
+    public int donated;
+    public int target;
     @Ignore
-    Bitmap pic;
+    public Bitmap pic;
 }
