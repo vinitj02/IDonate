@@ -22,12 +22,17 @@
         <activity
             android:name=".AllNGOsActivity"
             android:label="@string/title_activity_all_ngos"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <receiver android:name=".OTPReceiver" android:exported="true">
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name=".OTPReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".activities.Achievements"></activity>
     </application>
 
 </manifest>
