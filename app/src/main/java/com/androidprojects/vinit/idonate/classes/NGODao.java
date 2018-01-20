@@ -1,7 +1,9 @@
 package com.androidprojects.vinit.idonate.classes;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
@@ -16,4 +18,10 @@ public interface NGODao {
 
     @Query("SELECT * FROM ngo")
     List<NGO> getNGOs();
+
+    @Insert
+    void insert(NGO ngo);
+
+    @Update
+    void update(List<NGO> ngos);
 }

@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 @Entity
 public class NGO {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    public int id;
     public String name;
     public boolean selected;
     public int donated;

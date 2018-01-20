@@ -31,5 +31,9 @@ public class Utils {
     public static  boolean getParamB(Context ctx,String str,boolean def){
         return PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(str,def);
     }
+
+    public static int getPx(Context c, float dp){
+        return (int)(c.getResources().getDisplayMetrics().density*dp);
+    }
 }
 

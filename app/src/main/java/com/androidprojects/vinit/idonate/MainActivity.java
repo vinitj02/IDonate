@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     CardView[] cardViews;
-    CardView[] NGOcardViews;
+    ConstraintLayout[] NGOcardViews;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -3,10 +3,13 @@ package com.androidprojects.vinit.idonate;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.github.lzyzsd.circleprogress.DonutProgress;
 
 /**
  * Created by Vinit on 15-01-2018.
@@ -46,7 +49,8 @@ public class GoalsBuilder {
 
                //Create Vertical Linear Layout
                LinearLayout linearLayout1 = new LinearLayout(context);
-               linearLayout1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+               int size=Utils.getPx(linearLayout1.getContext(),32);
+               linearLayout1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
                linearLayout1.setOrientation(LinearLayout.VERTICAL);
 
                //Create ImageView
@@ -61,17 +65,19 @@ public class GoalsBuilder {
 
                //Create TextView
                TextView textView = new TextView(context);
-               LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.5f);
+               LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 0, 1.5f);
                params2.setMargins(px / 2, px / 2, px / 2, 0);
                textView.setLayoutParams(params2);
                textView.setText("Run 5 km. in 5 days\n \u20B9300");
                textView.setGravity(Gravity.CENTER);
 
-
-               ProgressBar progressBar=new ProgressBar(context);
-               LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f);
+               DonutProgress progressBar=new DonutProgress(context);
+               LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams(size, size, 0);
+               params3.gravity=Gravity.CENTER;
+               progressBar.setUnfinishedStrokeWidth(size/16);
+               progressBar.setFinishedStrokeWidth(size/8);
                progressBar.setLayoutParams(params3);
-               progressBar.setIndeterminate(false);
+               progressBar.setShowText(false);
 
                linearLayout1.addView(imageView);
                linearLayout1.addView(textView);

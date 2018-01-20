@@ -14,11 +14,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.androidprojects.vinit.idonate.classes.NGO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AllNGOsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ArrayList<Integer> ngosSelected=new ArrayList<Integer>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +48,17 @@ public class AllNGOsActivity extends AppCompatActivity
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-
+                ImageView imageView2=(ImageView)v.findViewById(Adapter.IMAGE_VIEW2);
+                if(imageView2.getVisibility()==View.INVISIBLE)
+                {
+                    imageView2.setVisibility(View.VISIBLE);
+                    ngosSelected.add(position);
+                }
+                else
+                {
+                    imageView2.setVisibility(View.INVISIBLE);
+                    ngosSelected.remove(new Integer(position));
+                }
             }
         });
     }
@@ -49,6 +66,19 @@ public class AllNGOsActivity extends AppCompatActivity
     public void addSelectedNGOs(View view)
     {
         //WHAT happens when you click add button
+        List<NGO> allngos=((IDonate)getApplication()).getDb().ngoDao().getNGOs();
+        for(NGO ngo:allngos)
+        {
+            if(ngosSelected.contains(new Integer(ngo.id))==true)
+            {
+                ngo.selected=true;
+            }
+            else
+            {
+                ngo.selected=false;
+            }
+        }
+        ((IDonate)getApplication()).getDb().ngoDao().update(allngos);
     }
 
     @Override
