@@ -1,5 +1,6 @@
 package com.androidprojects.vinit.idonate.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.androidprojects.vinit.idonate.IDonate;
 import com.androidprojects.vinit.idonate.R;
+import com.androidprojects.vinit.idonate.Utils;
 import com.androidprojects.vinit.idonate.classes.NGO;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 
@@ -52,7 +54,7 @@ public class ChooseNgoActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        //TODO:confirm donation
+        startActivity(new Intent(this,DonateActivity.class).putExtra(Utils.NGO_SELECTED,adapter.ngos.get(adapter.selected).name));
     }
 
     class NgosAdapter extends RecyclerView.Adapter<NgosAdapter.HolderView>{

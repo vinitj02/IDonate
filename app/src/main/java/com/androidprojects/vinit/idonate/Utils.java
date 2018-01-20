@@ -3,17 +3,19 @@ package com.androidprojects.vinit.idonate;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-/**
- * Created by ashis on 17-01-2018.
- */
-
 public class Utils {
 
     public static String LOGIN_ID="loginId";
     public static String OTP_RECEIVED="otpReceived";
     public static String OTP="otp";
     public static String CURRENT_BALANCE="currentBalance";
+    public static String PHONE_NO="phoneNo";
     public static String DONATION_AMOUNT="donationAmount";
+    public static String DO_TRANSACTION="doTransaction";
+    public static String NGO_SELECTED="ngoSelected";
+    public static String PASS_CODE ="passCode";
+    public static String SERVER_URL="";
+    public static String PIC_URL=SERVER_URL+"pics/";
     public static int PHONE_HINT=0;
 
     public static  String getParamStr(Context ctx,String str,String def){
