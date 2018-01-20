@@ -3,6 +3,7 @@
     package="com.androidprojects.vinit.idonate">
 
     <application
+        android:name=".IDonate"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,13 +23,17 @@
         <activity
             android:name=".AllNGOsActivity"
             android:label="@string/title_activity_all_ngos"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <receiver
-            android:name=".OTPReceiver"
-            android:exported="true">
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.ChooseNgoActivity"/>
+        <activity android:name=".activities.DonateActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".activities.PassCodeActivity"/>
+        <activity android:name=".activities.LoginActivity"/>
+        <activity android:name=".activities.OTPActivity"/>
+        <activity android:name=".activities.ProfileDetailActivity"/>
+        <receiver android:name=".OTPReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
             </intent-filter>
         </receiver>
 
