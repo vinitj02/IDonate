@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -31,6 +32,7 @@ public class NGOBuilder {
 
     public static ConstraintLayout[] ngocardbuilder(Context context, int px) {
         List<NGO> selectedngos = ((IDonate)context.getApplicationContext()).getDb().ngoDao().getSelectedNGOs(true);
+
         int no_of_cards=selectedngos.size();
         // Initialize a new CardView array
         ConstraintLayout[] constraintLayouts = new ConstraintLayout[no_of_cards];
@@ -41,8 +43,8 @@ public class NGOBuilder {
         else {
 
             for (int i = 0; i < no_of_cards; i++) {//Also change number of cards in this line
-
-                ConstraintLayout constraintLayout=(ConstraintLayout) View.inflate(context,R.layout.ngocard,null);
+                Log.e("mKIBNG",i+"");
+                ConstraintLayout constraintLayout=(ConstraintLayout) LayoutInflater.from(v.getContext()).inflate(R.layout.ngocard,null);
                 constraintLayouts[i] = constraintLayout;
             }
             return constraintLayouts;

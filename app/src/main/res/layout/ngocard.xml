@@ -35,13 +35,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NGO"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
             <TextView
                 android:id="@+id/text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="\u+20B9 200 of \u+20B9 3000"
+                android:text="\u20B9 200 of \u20B9 3000"
                 android:textSize="14sp" />
         </LinearLayout>
 

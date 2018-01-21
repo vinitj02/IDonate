@@ -7,4 +7,9 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_all_ngos">AllNGOsActivity</string>
     <string name="title_activity_achievements">Achievements</string>
+    <string-array name="nearestArray">
+        <item>10</item>
+        <item>100</item>
+        <item>1000</item>
+    </string-array>
 </resources>
