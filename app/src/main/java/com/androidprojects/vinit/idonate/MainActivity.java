@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 
 import com.androidprojects.vinit.idonate.activities.Achievements;
 import com.androidprojects.vinit.idonate.activities.LoginActivity;
+import com.androidprojects.vinit.idonate.classes.NGO;
 import com.firebase.ui.auth.util.GoogleApiHelper;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.credentials.Credential;
@@ -34,6 +35,7 @@ import com.google.android.gms.auth.api.credentials.HintRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
@@ -65,59 +67,60 @@ public class MainActivity extends AppCompatActivity
 
         //Convert dp to px to use in functions
         Resources r = getResources();
-        int px = Math.round(TypedValue.applyDimension(
+        final int px = Math.round(TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, 8, r.getDisplayMetrics()));
 
-        //horizontal linear layout
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
+        new Thread(new Runnable() {@Override public void run() {
+            final List<NGO> ngos=((IDonate)getApplication()).getDb().ngoDao().getSelectedNGOs(true);
+            runOnUiThread(new Runnable() {@Override public void run() {
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
+                HorizontalScrollView horizontalScrollView=(HorizontalScrollView)findViewById(R.id.horizontalscroll1);
+                HorizontalScrollView horizontalScrollView1=(HorizontalScrollView)findViewById(R.id.horizontalscroll2);
 
-        //horizontal scroll views
-        HorizontalScrollView horizontalScrollView=(HorizontalScrollView)findViewById(R.id.horizontalscroll1);
-        HorizontalScrollView horizontalScrollView1=(HorizontalScrollView)findViewById(R.id.horizontalscroll2);
+                //Buttons
+                Button button1=(Button)findViewById(R.id.button1);
+                Button button2=(Button)findViewById(R.id.button2);
+                Button button3=(Button)findViewById(R.id.button_addgoals);
+                Button button4=(Button)findViewById(R.id.button_addngos);
 
-        //Buttons
-        Button button1=(Button)findViewById(R.id.button1);
-        Button button2=(Button)findViewById(R.id.button2);
-        Button button3=(Button)findViewById(R.id.button_addgoals);
-        Button button4=(Button)findViewById(R.id.button_addngos);
+                cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
+                if(cardViews==null)
+                {
+                    button1.setVisibility(View.GONE);
+                    horizontalScrollView.setVisibility(View.GONE);
+                }
 
-        cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
-        if(cardViews==null)
-        {
-            button1.setVisibility(View.GONE);
-            horizontalScrollView.setVisibility(View.GONE);
-        }
+                else {
 
-        else {
+                    button3.setVisibility(View.GONE);
+                    for (int i = 0; i < 4; i++)//change the number of cards according to goals in database
+                    {
+                        linearLayout.addView(cardViews[i]);
+                    }
+                }
 
-            button3.setVisibility(View.GONE);
-            for (int i = 0; i < 4; i++)//change the number of cards according to goals in database
-            {
-                linearLayout.addView(cardViews[i]);
-            }
-        }
-
-        //horizontal linear layout
-        LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearlayout2);
+                //horizontal linear layout
+                LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearlayout2);
 
 
-        NGOcardViews = NGOBuilder.ngocardbuilder(MainActivity.this, px);
+                NGOcardViews = NGOBuilder.ngocardbuilder(ngos.size(), linearLayout2, px);
 
-        if(NGOcardViews==null)
-        {
-            button2.setVisibility(View.GONE);
-            horizontalScrollView1.setVisibility(View.GONE);
-        }
+                if(NGOcardViews==null)
+                {
+                    button2.setVisibility(View.GONE);
+                    horizontalScrollView1.setVisibility(View.GONE);
+                }
 
-        else {
-            button4.setVisibility(View.GONE);
-            for (int i = 0; i < 4; i++)//change the number of cards according to goals in database
-            {
-                Log.e("adding",i+" "+NGOcardViews[i].getHeight()+" "+NGOcardViews[i].getWidth());
-                LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-                linearLayout2.addView(NGOcardViews[i],p);
-            }
-        }
+                else {
+                    button4.setVisibility(View.GONE);
+                    for (int i = 0; i < 4; i++)//change the number of cards according to goals in database
+                    {
+                        Log.e("adding",i+" "+NGOcardViews[i].getHeight()+" "+NGOcardViews[i].getWidth());
+                        LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                        linearLayout2.addView(NGOcardViews[i],p);
+                    }
+                }
+            }});}}).start();
     }
 
     public void SelectNGOs(View view)

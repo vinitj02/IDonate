@@ -30,10 +30,8 @@ import java.util.List;
 
 public class NGOBuilder {
 
-    public static ConstraintLayout[] ngocardbuilder(Context context, int px) {
-        List<NGO> selectedngos = ((IDonate)context.getApplicationContext()).getDb().ngoDao().getSelectedNGOs(true);
-
-        int no_of_cards=selectedngos.size();
+    public static ConstraintLayout[] ngocardbuilder(int n,View v, int px) {
+        int no_of_cards=n;
         // Initialize a new CardView array
         ConstraintLayout[] constraintLayouts = new ConstraintLayout[no_of_cards];
 
