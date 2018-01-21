@@ -66,19 +66,21 @@ public class AllNGOsActivity extends AppCompatActivity
     public void addSelectedNGOs(View view)
     {
         //WHAT happens when you click add button
-        List<NGO> allngos=((IDonate)getApplication()).getDb().ngoDao().getNGOs();
-        for(NGO ngo:allngos)
-        {
-            if(ngosSelected.contains(new Integer(ngo.id))==true)
+        new Thread(new Runnable() {@Override public void run() {
+            final List<NGO> allngos=((IDonate)getApplication()).getDb().ngoDao().getSelectedNGOs(true);
+            for(NGO ngo:allngos)
             {
-                ngo.selected=true;
+                if(ngosSelected.contains(new Integer(ngo.id)))
+                {
+                    ngo.selected=true;
+                }
+                else
+                {
+                    ngo.selected=false;
+                }
             }
-            else
-            {
-                ngo.selected=false;
-            }
-        }
-        ((IDonate)getApplication()).getDb().ngoDao().update(allngos);
+            ((IDonate)getApplication()).getDb().ngoDao().update(allngos);
+        }}).start();
     }
 
     @Override

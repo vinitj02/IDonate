@@ -9,6 +9,8 @@ import android.support.v4.app.NotificationCompat;
 import android.telephony.SmsMessage;
 import android.widget.Toast;
 
+import com.androidprojects.vinit.idonate.activities.TransferActivity;
+
 import java.util.Arrays;
 
 import okhttp3.internal.Util;
@@ -67,7 +69,7 @@ public class MessageReceiver extends BroadcastReceiver {
     }
 
     PendingIntent getPI(Context ctx,boolean dnt,long amount){
-        Intent intent=new Intent(ctx,);
+        Intent intent=new Intent(ctx, TransferActivity.class);
         intent.putExtra(Utils.DONATION_AMOUNT,dnt);
         if(dnt)intent.putExtra(Utils.DONATION_AMOUNT,amount);
         PendingIntent pi=PendingIntent.getActivity(ctx,0,intent,0);

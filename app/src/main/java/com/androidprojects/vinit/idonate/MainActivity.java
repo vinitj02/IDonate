@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity
         //horizontal linear layout
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearlayout2);
 
+
         NGOcardViews = NGOBuilder.ngocardbuilder(MainActivity.this, px);
 
         if(NGOcardViews==null)

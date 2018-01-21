@@ -32,11 +32,17 @@ public class ChooseNgoActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_ngo);
-        ngosRv=(RecyclerView)findViewById(R.id.ngosRV);
-        donateB=(Button)findViewById(R.id.donateB);
-        viewAllB=(Button)findViewById(R.id.viewAllB);
+        ngosRv=findViewById(R.id.ngosRV);
+        donateB=findViewById(R.id.donateB);
+        viewAllB=findViewById(R.id.viewAllB);
 
-        adapter=new NgosAdapter(((IDonate)getApplication()).getDb().ngoDao().getSelectedNGOs(true));
+        new Thread(new Runnable() {@Override public void run() {
+                final List<NGO> ngos=((IDonate)getApplication()).getDb().ngoDao().getSelectedNGOs(true);
+                runOnUiThread(new Runnable() {@Override public void run() {
+                    adapter.setNgos(ngos);
+                }});}}).start();
+
+        adapter=new NgosAdapter();
 
         donateB.setOnClickListener(this);
 
@@ -46,7 +52,11 @@ public class ChooseNgoActivity extends AppCompatActivity implements View.OnClick
         viewAllB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adapter.setNgos(((IDonate)getApplication()).getDb().ngoDao().getNGOs());
+                new Thread(new Runnable() {@Override public void run() {
+                    final List<NGO> ngos=((IDonate)getApplication()).getDb().ngoDao().getNGOs();
+                    runOnUiThread(new Runnable() {@Override public void run() {
+                        adapter.setNgos(ngos);
+                    }});}}).start();
             }
         });
 
@@ -60,10 +70,6 @@ public class ChooseNgoActivity extends AppCompatActivity implements View.OnClick
     class NgosAdapter extends RecyclerView.Adapter<NgosAdapter.HolderView>{
         List<NGO> ngos;
         int selected=-1;
-
-        public NgosAdapter(List<NGO> ngos){
-            this.ngos=ngos;
-        }
 
         public void setNgos(List<NGO> ngos){
             this.ngos=ngos;
