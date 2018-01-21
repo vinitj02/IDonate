@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import com.androidprojects.vinit.idonate.activities.Achievements;
 import com.androidprojects.vinit.idonate.activities.LoginActivity;
 import com.androidprojects.vinit.idonate.classes.NGO;
+import com.androidprojects.vinit.idonate.activities.SettingsActivity;
 import com.firebase.ui.auth.util.GoogleApiHelper;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.credentials.Credential;
@@ -159,7 +160,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.achievement) {
             startActivity(new Intent(this, Achievements.class));
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
 
         } else if (id == R.id.nav_slideshow) {
 
