@@ -1,5 +1,8 @@
 package com.androidprojects.vinit.idonate;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -65,6 +68,7 @@ public class AllNGOsActivity extends AppCompatActivity
 
     public void addSelectedNGOs(View view)
     {
+        /*
         //WHAT happens when you click add button
         List<NGO> allngos=((IDonate)getApplication()).getDb().ngoDao().getNGOs();
         for(NGO ngo:allngos)
@@ -79,6 +83,7 @@ public class AllNGOsActivity extends AppCompatActivity
             }
         }
         ((IDonate)getApplication()).getDb().ngoDao().update(allngos);
+        */
     }
 
     @Override

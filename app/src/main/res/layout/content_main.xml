@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.androidprojects.vinit.idonate.MainActivity"
     tools:showIn="@layout/app_bar_main">
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:layout_marginTop="?attr/actionBarSize">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_weight="1.5">
 
         <FrameLayout
             android:layout_width="0dp"
@@ -29,8 +29,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:indeterminate="false"
-                app:donut_show_text="false"
-                android:progress="1" />
+                android:progress="1"
+                app:donut_show_text="false" />
 
             <TextView
                 android:id="@+id/textView"
@@ -43,12 +43,11 @@
     </android.support.constraint.ConstraintLayout>
 
     <FrameLayout
+        android:id="@+id/framelayout1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="@color/colorPrimary"
-        android:id="@+id/framelayout1"
-        >
+        android:background="@color/colorPrimary">
 
         <Button
             android:id="@+id/button_addgoals"
@@ -56,39 +55,41 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@null"
+            android:onClick="addgoalsmain"
             android:text="Add Goals +"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/linearlayout1">
+            android:id="@+id/linearlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@null"
-            android:minHeight="2dp"
-            android:paddingBottom="2dp"
-            android:paddingTop="2dp"
-            android:text="View All"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:minHeight="2dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:text="View All"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
             <HorizontalScrollView
+                android:id="@+id/horizontalscroll1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/horizontalscroll1">
+                android:scrollbars="none">
 
                 <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:id="@+id/linearlayout"/>
+                    android:id="@+id/linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" />
 
             </HorizontalScrollView>
         </LinearLayout>
@@ -96,11 +97,10 @@
 
 
     <FrameLayout
+        android:id="@+id/framelayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:id="@+id/framelayout2"
-        >
+        android:layout_weight="1.5">
 
         <Button
             android:id="@+id/button_addngos"
@@ -108,40 +108,41 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@null"
+            android:onClick="SelectNGOs"
             android:text="Add NGOs +"
             android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            android:onClick="SelectNGOs"/>
+            android:textSize="16sp" />
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/linearlayout3">
-
-            <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@null"
-            android:minHeight="2dp"
-            android:paddingBottom="2dp"
-            android:paddingTop="2dp"
-            android:text="View All"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp" />
-
-            <HorizontalScrollView
+            android:id="@+id/linearlayout3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/horizontalscroll2">
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:minHeight="2dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:text="View All"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalscroll2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
 
                 <LinearLayout
-                android:id="@+id/linearlayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" />
+                    android:id="@+id/linearlayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" />
 
             </HorizontalScrollView>
         </LinearLayout>
