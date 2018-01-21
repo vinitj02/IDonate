@@ -113,7 +113,9 @@ public class MainActivity extends AppCompatActivity
             button4.setVisibility(View.GONE);
             for (int i = 0; i < 4; i++)//change the number of cards according to goals in database
             {
-                linearLayout2.addView(NGOcardViews[i]);
+                Log.e("adding",i+" "+NGOcardViews[i].getHeight()+" "+NGOcardViews[i].getWidth());
+                LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                linearLayout2.addView(NGOcardViews[i],p);
             }
         }
     }
@@ -123,6 +125,15 @@ public class MainActivity extends AppCompatActivity
         if(NGOcardViews==null)
         {
             Intent intent=new Intent(MainActivity.this,AllNGOsActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    public void addgoalsmain(View view)
+    {
+        if(cardViews==null)
+        {
+            Intent intent=new Intent(MainActivity.this,AllGoalsActivity.class);
             startActivity(intent);
         }
     }

@@ -1,15 +1,20 @@
 package com.androidprojects.vinit.idonate;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -76,9 +81,35 @@ public class Adapter extends BaseAdapter{
             params.gravity=Gravity.CENTER;
             textView.setLayoutParams(params);
             textView.setText("NGO");
+            textView.setTextColor(Color.parseColor("#3F51B5"));
+            TextView textView2=new TextView(mContext);
+            CardView.LayoutParams params2=new FrameLayout.LayoutParams(CardView.LayoutParams.WRAP_CONTENT,CardView.LayoutParams.WRAP_CONTENT);
+            params2.gravity=Gravity.RIGHT|Gravity.BOTTOM;
+            params2.bottomMargin=Utils.getPx(mContext,2);
+            params2.rightMargin=Utils.getPx(mContext,2);
+            textView2.setLayoutParams(params2);
+            textView2.setText("Details");
+            textView2.setTextColor(Color.parseColor("#3F51B5"));
+            textView2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+            textView2.setClickable(true);
+            TextView.OnClickListener onClickListener=new TextView.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder myDialog = new AlertDialog.Builder(mContext);
+                    myDialog.setTitle("NGO");
+                    myDialog.setView(R.layout.alertdialogngos);
+                    myDialog.setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        } });
+                    myDialog.show();
+                }
+            };
+            textView2.setOnClickListener(onClickListener);
             cardView.addView(imageView);
             cardView.addView(textView);
             cardView.addView(imageView2);
+            cardView.addView(textView2);
             imageView.setId(IMAGE_VIEW);
             imageView2.setId(IMAGE_VIEW2);
         } else {

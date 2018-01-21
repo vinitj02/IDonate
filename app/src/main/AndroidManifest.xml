@@ -48,6 +48,7 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name=".AllGoalsActivity"></activity>
         <activity android:name=".activities.Achievements" />
         <activity android:name=".activities.SettingsActivity" />
         <activity android:name=".activities.TransferActivity"></activity>

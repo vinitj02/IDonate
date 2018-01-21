@@ -35,7 +35,7 @@ public class GoalsBuilder {
                CardView card = new CardView(context);
                // Set the CardView layoutParams
                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
-               params.setMargins(px, 0, px, px);
+               params.setMargins(px, px, px, px);
                card.setLayoutParams(params);
 
                // Set CardView corner radius
@@ -56,7 +56,7 @@ public class GoalsBuilder {
                //Create ImageView
                ImageView imageView = new ImageView(context);
                //setting image resource
-               imageView.setImageResource(R.drawable.ic_launcher_background);
+               imageView.setImageResource(R.drawable.goal1);
                //setting image position
                LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                        0, 2.5f);
