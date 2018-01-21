@@ -52,7 +52,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         int nearest=10;
         while (near-- > 1)nearest*=10;
         Utils.setParamL(this,Utils.DONATION_LIMIT,Long.parseLong(donationLimitET.getText().toString()));
-        Utils.setParamL(this,Utils.NEAREST,nearest);
+        Utils.setParamI(this,Utils.NEAREST,nearest);
         //update Donation Limit
     }
 }

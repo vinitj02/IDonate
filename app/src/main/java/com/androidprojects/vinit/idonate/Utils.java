@@ -31,7 +31,7 @@ public class Utils {
     }
 
     public static  int getParamI(Context ctx,String str,int def){
-        return PreferenceManager.getDefaultSharedPreferences(ctx).getInt(str,def);
+         return PreferenceManager.getDefaultSharedPreferences(ctx).getInt(str,def);
     }
 
     public static  boolean getParamB(Context ctx,String str,boolean def){

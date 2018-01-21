@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.androidprojects.vinit.idonate.classes.NGO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ import java.util.List;
 public class NGOBuilder {
 
     public static ConstraintLayout[] ngocardbuilder(Context context, int px) {
-        List<NGO> selectedngos = ((IDonate)context.getApplicationContext()).getDb().ngoDao().getSelectedNGOs(true);
+        List<NGO> selectedngos = new ArrayList<NGO>();//((IDonate)context.getApplicationContext()).getDb().ngoDao().getSelectedNGOs(true);
         int no_of_cards=selectedngos.size();
         // Initialize a new CardView array
         ConstraintLayout[] constraintLayouts = new ConstraintLayout[no_of_cards];

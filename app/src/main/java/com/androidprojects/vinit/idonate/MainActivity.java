@@ -20,11 +20,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.androidprojects.vinit.idonate.activities.Achievements;
+import com.androidprojects.vinit.idonate.activities.ChooseNgoActivity;
 import com.androidprojects.vinit.idonate.activities.LoginActivity;
 import com.androidprojects.vinit.idonate.activities.SettingsActivity;
 import com.firebase.ui.auth.util.GoogleApiHelper;
@@ -81,6 +83,20 @@ public class MainActivity extends AppCompatActivity
         Button button2=(Button)findViewById(R.id.button2);
         Button button3=(Button)findViewById(R.id.button_addgoals);
         Button button4=(Button)findViewById(R.id.button_addngos);
+
+        //adding onclick to progress
+        FrameLayout frameLayout=findViewById(R.id.frameLayout);
+        frameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ChooseNgoActivity.class));
+            }
+        });
+
+
+
+
+
 
         cardViews = GoalsBuilder.cardbuilder(MainActivity.this, px);
         if(cardViews==null)
