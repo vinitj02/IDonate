@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.androidprojects.vinit.idonate">
-
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
     <application
         android:name=".IDonate"
         android:allowBackup="true"
@@ -23,15 +23,19 @@
         <activity
             android:name=".AllNGOsActivity"
             android:label="@string/title_activity_all_ngos"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activities.ChooseNgoActivity"/>
-        <activity android:name=".activities.DonateActivity"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".activities.PassCodeActivity"/>
-        <activity android:name=".activities.LoginActivity"/>
-        <activity android:name=".activities.OTPActivity"/>
-        <activity android:name=".activities.ProfileDetailActivity"/>
-        <receiver android:name=".OTPReceiver" android:exported="true">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.ChooseNgoActivity" />
+        <activity
+            android:name=".activities.DonateActivity"
+            android:launchMode="singleInstance" />
+        <activity android:name=".activities.PassCodeActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.OTPActivity" />
+        <activity android:name=".activities.ProfileDetailActivity" />
+
+        <receiver
+            android:name=".OTPReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
             </intent-filter>
@@ -44,10 +48,16 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".AllGoalsActivity"></activity>
+        <activity android:name=".AllGoalsActivity" />
         <activity android:name=".activities.Achievements" />
         <activity android:name=".activities.SettingsActivity" />
-        <activity android:name=".activities.TransferActivity"></activity>
+        <activity android:name=".activities.TransferActivity" />
+        <activity android:name=".activities.TransactionsActivity" />
+
+        <service
+            android:name=".services.PopupService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

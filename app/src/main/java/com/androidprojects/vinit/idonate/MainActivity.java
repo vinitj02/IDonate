@@ -29,6 +29,8 @@ import com.androidprojects.vinit.idonate.activities.Achievements;
 import com.androidprojects.vinit.idonate.activities.ChooseNgoActivity;
 import com.androidprojects.vinit.idonate.activities.LoginActivity;
 import com.androidprojects.vinit.idonate.activities.SettingsActivity;
+import com.androidprojects.vinit.idonate.activities.TransactionsActivity;
+import com.androidprojects.vinit.idonate.services.PopupService;
 import com.firebase.ui.auth.util.GoogleApiHelper;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.credentials.Credential;
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        startService(new Intent(this,PopupService.class));
 
         long id=Utils.getParamL(this,Utils.LOGIN_ID,0);
 
@@ -163,9 +167,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, Achievements.class));
         } else if (id == R.id.settings) {
             startActivity(new Intent(this, SettingsActivity.class));
-
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.transaction_history) {
+            startActivity(new Intent(this, TransactionsActivity.class));
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

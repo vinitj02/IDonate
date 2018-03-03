@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.androidprojects.vinit.idonate.activities.ChooseNgoActivity"
-    app:cardBackgroundColor="#0000ff"
+    app:cardBackgroundColor="#aaffaf"
     android:layout_height="128dp"
     android:backgroundTint="#3f000000"
     android:backgroundTintMode="src_over"
@@ -37,6 +37,8 @@
             app:donut_text="20%"
             app:donut_text_size="14sp"
             app:donut_unfinished_stroke_width="2dp"
+            app:donut_text_color="#fafafa"
+            app:donut_finished_color="#3aff3f"
             app:layout_constraintBottom_toTopOf="@+id/goalTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +56,11 @@
             app:layout_constraintStart_toStartOf="parent" />
     </android.support.constraint.ConstraintLayout>
     <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#3f000000"
-        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:background="@null"
+        android:visibility="visible"
         android:id="@+id/selectedIM"
-        android:src="@drawable/check" />
+        android:src="@drawable/ic_check_circle_black_24dp" />
 </android.support.v7.widget.CardView>

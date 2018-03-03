@@ -13,10 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.androidprojects.vinit.idonate.IDonate;
 import com.androidprojects.vinit.idonate.R;
 import com.androidprojects.vinit.idonate.Utils;
+import com.androidprojects.vinit.idonate.classes.Transaction;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
+import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -102,5 +106,6 @@ public class DonateActivity extends AppCompatActivity implements View.OnClickLis
 
     void doTransaction(String ngoName,Long amt){
         //TODO:Volley transaction
+        ((IDonate)getApplication()).getDb().transactionDao().insert(new Transaction(amt,payingTo,new Date()));
     }
 }
